@@ -8,9 +8,9 @@ import seaborn as sns
 integration_dataset_df = pd.read_csv("continuous_integration_data_pipeline_dataset.csv")
 
 fig, axes = plt.subplots(figsize=(12,8))
-plt.scatter((integration_dataset_df['X'])(integration_dataset_df['Y']), s=100, edgecolors='black')
-plt.xlabel('X')
-plt.ylabel('Y')
+plt.scatter(integration_dataset_df['X'],integration_dataset_df['Y'], s=100)
+plt.xlabel("X")
+plt.ylabel("Y")
 plt.grid(True)
-plt.tight_layout
+plt.tight_layout()
 plt.show()
