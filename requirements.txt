@@ -1,1 +1,7 @@
 pytest
+matplotlib
+numpy
+turtle
+pandas
+seaborn
+scipy
