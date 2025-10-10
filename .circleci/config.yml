@@ -10,6 +10,12 @@ jobs:
           name: Install dependencies
           command: pip install -r requirements.txt
       - run:
+          name: Debug working directory
+          command: |
+            echo "PWD = $(pwd)"
+            echo "Contents:"
+            ls -la
+      - run:
           name: Run tests
           command: pytest test_units.py
 
