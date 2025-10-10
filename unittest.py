@@ -8,5 +8,6 @@ def csv_saved_unit_test():
         if len(os.listdir('/Users/sophieb/Visual Studio Code/CircleCI'))>0:
             x=[_ for _ in os.listdir('/Users/sophieb/Visual Studio Code/CircleCI') if _[-3:]=='csv'][0]
             new_file=pd.read_csv(x)
+            print(new_file)
 
 csv_saved_unit_test()
