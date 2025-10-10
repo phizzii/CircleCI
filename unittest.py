@@ -1,7 +1,7 @@
 import pandas as pd
 import os
 
-def csv_saved_unit_test():
+def test_csv_saved():
     folder_path = '/Users/sophieb/Visual Studio Code/CircleCI'
     csv_files = [f for f in os.listdir(folder_path) if f.endswith('.csv')]
     assert csv_files, "no csv files in folder"
