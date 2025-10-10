@@ -2,12 +2,11 @@ import pandas as pd
 import os
 
 def csv_saved_unit_test():
-    #df = pd.read_csv("/Users/sophieb/Visual Studio Code/CircleCI/*.csv")
-    #print(df)
-    if 'output' in os.listdir('/Users/sophieb/Visual Studio Code/CircleCI'):
-        if len(os.listdir('/Users/sophieb/Visual Studio Code/CircleCI'))>0:
-            x=[_ for _ in os.listdir('/Users/sophieb/Visual Studio Code/CircleCI') if _[-3:]=='csv'][0]
-            new_file=pd.read_csv(x)
-            print(new_file)
+    folder_path = '/Users/sophieb/Visual Studio Code/CircleCI'
+    csv_files = [f for f in os.listdir(folder_path) if f.endswith('.csv')]
+    assert csv_files, "no csv files in folder"
 
-csv_saved_unit_test()
+    csv_path = os.path.join(folder_path, csv_files[0])
+    df = pd.read_csv(csv_path)
+
+    assert not df.empty, f"csv file '{csv_files[0]}' is empty."
