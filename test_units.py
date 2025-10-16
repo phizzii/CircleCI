@@ -5,6 +5,14 @@ import os
 
 def test_csv_saved():
     folder_path = '/Users/sophieb/Visual Studio Code/CircleCI'
+
+    import os
+
+def test_csv_saved():
+    folder_path = '/Users/sophieb/Visual Studio Code/CircleCI'  # Ensure this path exists
+    if not os.path.exists(folder_path):
+        raise FileNotFoundError(f"The specified directory does not exist: {folder_path}")
+
     csv_files = [f for f in os.listdir(folder_path) if f.endswith('.csv')]
     assert csv_files, "no csv files in folder"
 
