@@ -3,13 +3,10 @@
 import pandas as pd
 import os
 
-def test_csv_saved():
-    folder_path = '/Users/sophieb/Visual Studio Code/CircleCI'
-
-    import os
+print(os.getcwd())
 
 def test_csv_saved():
-    folder_path = '/Users/sophieb/Visual Studio Code/CircleCI'  # Ensure this path exists
+    folder_path = os.getcwd() # Ensure this path exists
     if not os.path.exists(folder_path):
         raise FileNotFoundError(f"The specified directory does not exist: {folder_path}")
 
