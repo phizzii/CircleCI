@@ -48,9 +48,8 @@ def test_correlation_coefficient():
     csv_path = os.path.join(folder_path, csv_files[0])
     df = pd.read_csv(csv_path)
 
-    df.corr()
+    correlation_matrix = df.corr()
 
-    if df.corr() < 0.95:
-        raise TypeError(f"file contains non-numerical/null values")
+    assert (correlation_matrix < 0.95).all().all()
     
             
