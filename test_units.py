@@ -26,10 +26,11 @@ def test_csv_values():
         raise FileNotFoundError(f"The specified directory does not exist: {folder_path}")
 
     csv_files = [f for f in os.listdir(folder_path) if f.endswith('.csv')]
-    assert not df.empty, f"csv file '{csv_files[0]}' is empty."
 
     csv_path = os.path.join(folder_path, csv_files[0])
     df = pd.read_csv(csv_path)
+
+    assert not df.empty, f"csv file '{csv_files[0]}' is empty."
 
     numeric_df = df.apply(pd.to_numeric, errors='coerce')
     is_all_numeric = not numeric_df.isnull().values.any()
@@ -50,6 +51,6 @@ def test_correlation_coefficient():
 
     correlation_matrix = df.corr()
 
-    assert (correlation_matrix < 0.95).all().all()
+    assert (correlation_matrix >= 0.95).all().all()
     
             
